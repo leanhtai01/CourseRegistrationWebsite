@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <script src="./javascript/jquery-3.5.1.js"></script>
     <script src="./javascript/button_handling.js"></script>
+    <script src="./javascript/load_data.js"></script>
 </head>
 <body>
     <h1>ĐĂNG KÝ HỌC PHẦN</h1>
