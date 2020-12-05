@@ -18,6 +18,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Course Registration</title>
     <link rel="stylesheet" href="./css/style.css">
+    <script src="./javascript/jquery-3.5.1.js"></script>
+    <script src="./javascript/button_handling.js"></script>
 </head>
 <body>
     <h1>ĐĂNG KÝ HỌC PHẦN</h1>
@@ -76,10 +78,10 @@
 
                 <!-- add, remove button -->
                 <div>
-                    <button name="buttonAdd" id="buttonAdd">&gt;</button>
-                    <button name="buttonAddAll" id="buttonAddAll">&gt;&gt;</button>
-                    <button name="buttonRemove" id="buttonRemove">&lt;</button>
-                    <button name="buttonRemoveAll" id="buttonRemoveAll">&lt;&lt;</button>
+                    <button type="button" name="buttonAdd" id="buttonAdd">&gt;</button>
+                    <button type="button" name="buttonAddAll" id="buttonAddAll">&gt;&gt;</button>
+                    <button type="button" name="buttonRemove" id="buttonRemove">&lt;</button>
+                    <button type="button" name="buttonRemoveAll" id="buttonRemoveAll">&lt;&lt;</button>
                 </div>
 
                 <!-- selected courses -->
@@ -90,7 +92,7 @@
 
                 <!-- button Ok -->
                 <div>
-                    <button name="buttonOk" id="buttonOk">Ok</button>
+                    <button type="button" name="buttonOk" id="buttonOk">Ok</button>
                 </div>
             </div>
 
