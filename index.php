@@ -1,3 +1,16 @@
+<?php
+    $pdo = new PDO("mysql:host=localhost;dbname=course_registration", "leanhtai01", "123");
+    $courses = "";
+    $sql = "SELECT id, name FROM course";
+
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->fetchAll();
+
+    foreach ($result as $row) {
+        $courses .= '<option value="'.$row['id'].'">'.$row['name'].'</option>';
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,7 +67,11 @@
                 <!-- courses list -->
                 <div>
                     <label>Các môn học</label>
-                    <select name="listBoxCourse[]" id="listBoxCourse" multiple></select>
+                    <select name="listBoxCourse[]" id="listBoxCourse" multiple>
+                        <?php
+                            echo $courses;
+                        ?>
+                    </select>
                 </div>
 
                 <!-- add, remove button -->
