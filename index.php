@@ -1,11 +1,11 @@
 <?php
-    $pdo = new PDO("mysql:host=localhost;dbname=course_registration", "leanhtai01", "123");
+    include_once("./class/Database.php");
+
+    $db = new Database();
     $courses = "";
     $sql = "SELECT id, name FROM course";
 
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute();
-    $result = $stmt->fetchAll();
+    $result = $db->queryDB($sql, Database::SELECTALL);
 
     foreach ($result as $row) {
         $courses .= '<option value="'.$row['id'].'">'.$row['name'].'</option>';
@@ -22,6 +22,7 @@
     <script src="./javascript/button_handling.js"></script>
     <script src="./javascript/load_data.js"></script>
     <script src="./javascript/checkbox_handling.js"></script>
+    <script src="./javascript/submit_handling.js"></script>
 </head>
 <body>
     <h1>ĐĂNG KÝ HỌC PHẦN</h1>
@@ -29,7 +30,7 @@
     <!-- form registration -->
     <hr>
     <div>
-        <form action="">
+        <form id="formRegistration" action="registration_handling.php">
             <!-- student's information -->
             <div class="studentInfo">
                 <!-- student's Id -->
@@ -109,16 +110,13 @@
     <!-- list student -->
     <hr>
     <div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Mã số</th>
-                    <th>Họ và tên</th>
-                    <th>Giới tính</th>
-                    <th>Ngày sinh</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
+        <table id="tableStudent">
+            <tr>
+                <th>Mã số</th>
+                <th>Họ và tên</th>
+                <th>Giới tính</th>
+                <th>Ngày sinh</th>
+            </tr>
         </table>
     </div>
 </body>
