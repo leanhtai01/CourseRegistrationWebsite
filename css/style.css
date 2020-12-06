@@ -1,3 +1,11 @@
 h1 {
     text-align: center;
 }
+
+input[type="text"]:focus, input[type="email"]:focus {
+    background-color: yellow;
+}
+
+table tbody tr:hover {
+    background-color: yellow;
+}

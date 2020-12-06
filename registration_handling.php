@@ -19,6 +19,8 @@ if ($selectedCourses != NULL) {
 }
 
 if ($isSuccess) {
+    $dob = date("d/m/Y", strtotime($strdob));
+    
     echo "<tr>".
         "<td>".$id."</td>".
         "<td>".$name."</td>".

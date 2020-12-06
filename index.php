@@ -17,11 +17,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Course Registration</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        <?php
+            include "./css/style.css";
+        ?>
+    </style>
     <script src="./javascript/jquery-3.5.1.js"></script>
     <script src="./javascript/button_handling.js"></script>
     <script src="./javascript/load_data.js"></script>
     <script src="./javascript/checkbox_handling.js"></script>
+    <script src="./javascript/validation.js"></script>
+    <script src="./javascript/input_validating.js"></script>
     <script src="./javascript/submit_handling.js"></script>
 </head>
 <body>
@@ -35,23 +41,23 @@
             <div class="studentInfo">
                 <!-- student's Id -->
                 <label for="textBoxId">Mã số:</label>
-                <input type="text" name="textBoxId" id="textBoxId"><br>
+                <input type="text" name="textBoxId" id="textBoxId" required><br>
 
                 <!-- student's name -->
                 <label for="textBoxName">Họ và tên:</label>
-                <input type="text" name="textBoxName" id="textBoxName"><br>
+                <input type="text" name="textBoxName" id="textBoxName" required><br>
 
                 <!-- student's address -->
                 <label for="textBoxAddress">Địa chỉ:</label>
-                <input type="text" name="textBoxAddress" id="textBoxAddress"><br>
+                <input type="text" name="textBoxAddress" id="textBoxAddress" required><br>
 
                 <!-- student's phone number -->
                 <label for="textBoxPhone">Điện thoại:</label>
-                <input type="text" name="textBoxPhone" id="textBoxPhone"><br>
+                <input type="text" name="textBoxPhone" id="textBoxPhone" pattern="([0-9]{3}-)?[0-9]{6}" required><br>
 
                 <!-- student's gender -->
                 <label>Giới tính:</label>
-                <input class="gender" type="checkbox" name="checkBoxMale" id="checkBoxMale" value="M">
+                <input class="gender" type="checkbox" name="checkBoxMale" id="checkBoxMale" value="M" checked>
                 <label for="checkBoxMale">Nam</label>
                 <input class="gender" type="checkbox" name="checkBoxFemale" id="checkBoxFemale" value="F">
                 <label for="checkBoxFemale">Nữ</label><br>
@@ -59,12 +65,12 @@
                 <!-- student's date of birth -->
                 <label>Ngày sinh:</label>
                 <select name="dropDownListMonth" id="dropDownListMonth"></select>,
-                <input type="text" name="textBoxDay" id="textBoxDay">,
-                <input type="text" name="textBoxYear" id="textBoxYear"><br>
+                <input type="text" name="textBoxDay" id="textBoxDay" required>,
+                <input type="text" name="textBoxYear" id="textBoxYear" required><br>
 
                 <!-- student's email -->
                 <label for="textBoxEmail">Email:</label>
-                <input type="text" name="textBoxEmail" id="textBoxEmail">
+                <input type="email" name="textBoxEmail" id="textBoxEmail" pattern=".*@(yahoo|gmail).*" required>
             </div>
 
             <!-- course registration -->
@@ -111,12 +117,13 @@
     <hr>
     <div>
         <table id="tableStudent">
-            <tr>
+            <thead>
                 <th>Mã số</th>
                 <th>Họ và tên</th>
                 <th>Giới tính</th>
                 <th>Ngày sinh</th>
-            </tr>
+            </thead>
+            <tbody></tbody>
         </table>
     </div>
 </body>
